@@ -51,6 +51,12 @@ class Student extends Person {
         this.grade = stuAttrs.grade;
     }
 
+    listsSubjects() {
+       for (let i = 0; i < this.favSubjects.length; i++) {
+           console.log(this.favSubjects[i]);
+       }
+    }
+
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
@@ -145,6 +151,7 @@ const blank = new ProjectManager({
 console.log(albus.speak());
 console.log(albus.demo(`Defense Against the Dark Arts`));
 console.log(honey.grade(kevin, `JavaScript`));
+kevin.listsSubjects();
 console.log(kevin.PRAssignment(`JavaScript-IV`));
 console.log(alexis.sprintChallenge(`Advanced CSS`));
 console.log(fake.standUp(`web17_fake`));
