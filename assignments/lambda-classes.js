@@ -28,6 +28,18 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+
+    gradeAssignment(student) {
+        let score = Math.round(Math.random() * 100);
+        student.grade = (student.grade + score)/2;
+        if (score < 65) {
+            return `${student.name}, please see me after class. A score of ${score} is unnacceptable.`;
+        } else if (score < 85) {
+            return `${student.name}, your score of ${score} will suffice.`
+        } else {
+            return `${student.name}, you did very well on this assignment with a score of ${score}. You're amazing!`
+        }
+    }
 }
 
 class Student extends Person {
@@ -36,6 +48,7 @@ class Student extends Person {
         this.previousBackground = stuAttrs.previousBackground;
         this.className = stuAttrs.className;
         this.favSubjects = stuAttrs.favSubjects;
+        this.grade = stuAttrs.grade;
     }
 
     PRAssignment(subject) {
@@ -90,7 +103,8 @@ const kevin = new Student({
 	gender: 'male',
 	previousBackground: 'customer service',
 	className: 'Web17',
-	favSubjects: ['HTML', 'CSS', 'JavaScript']
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: 95
 });
 
 const alexis = new Student({
@@ -100,7 +114,8 @@ const alexis = new Student({
 	gender: 'female',
 	previousBackground: 'photography',
 	className: 'potential student',
-	favSubjects: ['UX', 'Photoshop']
+    favSubjects: ['UX', 'Photoshop'],
+    grade: 80
 });
 
 const fake = new ProjectManager({
@@ -134,3 +149,7 @@ console.log(kevin.PRAssignment(`JavaScript-IV`));
 console.log(alexis.sprintChallenge(`Advanced CSS`));
 console.log(fake.standUp(`web17_fake`));
 console.log(blank.debugsCode(alexis, `Advanced CSS`));
+
+console.log(kevin.grade);
+console.log(blank.gradeAssignment(kevin));
+console.log(kevin.grade);
