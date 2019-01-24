@@ -62,3 +62,67 @@ class ProjectManager extends Instructor {
         `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+const albus = new Instructor({
+	name: 'Albus Dumbledore',
+	location: 'Hogwarts',
+	age: 150,
+	gender: 'male',
+	favLanguage: 'C',
+	specialty: 'Magic',
+	catchPhrase: 'It does not do to dwell on dreams and forget to live.'
+});
+
+const honey = new Instructor({
+	name: 'Miss Honey',
+	location: 'England',
+	age: 32,
+	gender: 'female',
+	favLanguage: 'JavaScript',
+	specialty: 'telekinesis',
+	catchPhrase: 'You are an ubelievably precocious child.'
+});
+
+const kevin = new Student({
+	name: 'Kevin',
+	location: 'Wisconsin',
+	age: 31,
+	gender: 'male',
+	previousBackground: 'customer service',
+	className: 'Web17',
+	favSubjects: ['HTML', 'CSS', 'JavaScript']
+});
+
+const alexis = new Student({
+	name: 'Alexis',
+	location: 'Wisconsin',
+	age: 37,
+	gender: 'female',
+	previousBackground: 'photography',
+	className: 'potential student',
+	favSubjects: ['UX', 'Photoshop']
+});
+
+const fake = new ProjectManager({
+	name: 'Fake PM',
+	location: 'The Cloud',
+	age: 88,
+	gender: 'intersex',
+	favLanguage: 'All of them',
+	specialty: 'Every single specialty.',
+	catchPhrase: 'I wish I were more creative',
+	gradClassName: 'Web -1',
+	favInstructor: albus
+});
+
+const blank = new ProjectManager({
+	name: 'BlankMan',
+	location: 'NYC',
+	age: 35,
+	gender: 'male',
+	favLanguage: 'HTML',
+	specialty: 'front-end',
+	catchPhrase: 'Slap me around and call me Susan!',
+	gradClassName: 'Web50',
+	favInstructor: honey
+});
