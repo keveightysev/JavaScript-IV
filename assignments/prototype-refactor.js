@@ -15,14 +15,16 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-function GameObject(objAttrs) {
-    this.createdAt = new Date();
-    this.dimensions = objAttrs.dimensions; 
-  }
-  
-  GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game.`;
-  }
+class GameObject {
+    constructor(objAttrs) {
+        this.createdAt = new Date();
+        this.dimensions = objAttrs.dimensions;  
+    }
+
+    destroy() {
+        return `${this.name} was removed from the game.`;
+    }
+}
   
   /*
     === CharacterStats ===
@@ -32,16 +34,17 @@ function GameObject(objAttrs) {
     * should inherit destroy() from GameObject's prototype
   */
   
-  function CharacterStats(charAttrs) {
-    GameObject.call(this, charAttrs);
-    this.healthPoints = charAttrs.healthPoints;
-    this.name = charAttrs.name; 
-  }
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function() {
-    return `${this.name} took damage.`;
+
+  class CharacterStats extends GameObject {
+      constructor(charAttrs) {
+          super(charAttrs);
+          this.healthPoints = charAttrs.healthPoints;
+          this.name = charAttrs.name;
+      }
+
+      takeDamage() {
+          return `${this.name} took damage.`;
+      }
   }
   
   /*
@@ -54,17 +57,18 @@ function GameObject(objAttrs) {
     * should inherit takeDamage() from CharacterStats
   */
   
-  function Humanoid(humAttrs) {
-    CharacterStats.call(this, humAttrs);
-    this.team = humAttrs.team;
-    this.weapons = humAttrs.weapons;
-    this.language = humAttrs.language;
-  }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}.`;
+
+  class Humanoid extends CharacterStats {
+      constructor(humAttrs) {
+          super(humAttrs);
+          this.team = humAttrs.team;
+          this.weapons = humAttrs.weapons;
+          this.language = humAttrs.language;
+      }
+
+      greet() {
+          return `${this.name} offers a greeting in ${this.language}`; 
+      }
   }
    
   /*
