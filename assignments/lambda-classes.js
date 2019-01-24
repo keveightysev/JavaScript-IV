@@ -42,8 +42,8 @@ class Student extends Person {
         return `${this.name} has submitted a PR for ${subject}`;
     }
 
-    springChallenge(subject) {
-        return `${this.name} has begun spring challenge on ${subject}`;
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -55,11 +55,11 @@ class ProjectManager extends Instructor {
     }
 
     standUp(channel) {
-        `${this.name} announes to ${channel}, @channel standy times!`;
+        return `${this.name} announes to ${channel}, @channel standy times!`;
     }
 
     debugsCode(student, subject) {
-        `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -126,3 +126,11 @@ const blank = new ProjectManager({
 	gradClassName: 'Web50',
 	favInstructor: honey
 });
+
+console.log(albus.speak());
+console.log(albus.demo(`Defense Against the Dark Arts`));
+console.log(honey.grade(kevin, `JavaScript`));
+console.log(kevin.PRAssignment(`JavaScript-IV`));
+console.log(alexis.sprintChallenge(`Advanced CSS`));
+console.log(fake.standUp(`web17_fake`));
+console.log(blank.debugsCode(alexis, `Advanced CSS`));
